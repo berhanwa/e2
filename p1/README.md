@@ -3,24 +3,16 @@
 + URL: <http://e2p1.bethlehemhes.me>
 
 ## Game planning
-_In plain english - no code - think through how you'll make this game work. Example:_
-+ _Create an array of three options, rock, paper or scissors._
-
-+ _Create an array of three options, rock, paper or scissors._
-+ _Randomly choose one of these options from the array and assign it as Player 1's move_
-+ _Randomly choose one of these options from the array and assign it as Player 2's move_
-
-
-+ _Randomly choose from the array of heads/tails again and assign this as the "flip" value_
-+ _If Player A's move matches "flip", then assign a value winner to Player A_
-+ _Otherwise, assign a value winner to Player B_
-+ _Report the results of Player A's Move, Player B's move, the flip, and the winner to the page_
-
-
++ _Create an array of three options: rock, paper or scissor._
++ _Assign a variable that randomly selects what option each Player draws._
++ _Assign a variable for who the winner will be._
++ _If Player 1's draw matches Player 2's draw, then assign the winner as a tie._
++ _Otherwise, cycle through each option for both Players, stating who wins in each instance._
++ _Report the results of Player 1's draw, Player 2's draw, and the winner to the page._
 
 
 ## Outside resources
-*your list of outside resources go here*
+NA
 
 ## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section* 
+THANK YOU FOR HELPING ME!! :)

@@ -20,8 +20,12 @@
 
     <h2>Results</h2>
 
+    <?php foreach($results as $result) { ?>
     <ul>
-        <li>Lorem</li>
+        <li>Player 1 drew <?php echo $player1draw ?></li>
+        <li>Player 2 drew <?php echo $player2draw ?></li>
+        <li>Winner: <?php echo $winner ?></li>
     </ul>
+    <?php } ?>
 
 </body>

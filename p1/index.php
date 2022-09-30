@@ -7,7 +7,7 @@ $player2draw = $moves[rand(0, 2)];
 $winner = '';
 
 if ($player1draw == $player2draw) {
-    $winner = 'Tie';
+    $winner = 'It was a tie';
 } elseif ($player1draw == 'rock' and $player2draw == 'paper') {
     $winner = 'Player 2';
 } elseif ($player1draw == 'rock' and $player2draw == 'scissor'){
@@ -22,11 +22,10 @@ if ($player1draw == $player2draw) {
     $winner = 'Player 1';
 }
     
-var_dump($player1draw);
-var_dump($player2draw);
-var_dump($winner);
-
+$results[] = [
+    'player1' => $player1draw,
+    'player2' => $player2draw,
+    'winner' => $winner,
+];
 
 require 'index-view.php';
-
-?>
