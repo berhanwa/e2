@@ -1,63 +1,37 @@
 <?php
 
-// var_dump($_POST);
+session_start();
 
-$draw = $_POST['draw'];
+$userDraw = $_POST['draw'];
+$computerDraw = drawMove();
+$winner = decideWinner($userDraw, $computerDraw);
 
-                //   0       1         2
-        $moves = ['rock', 'paper', 'scissor'];
-        $userDraw = $draw;
-        $computerDraw = $moves[rand(0, 2)];
-        $winner = '';
+
         
-        // function decideWinner() {
-        //     if ($userDraw == $computerDraw) {
-        //         return 'It was a tie';
-        //     } elseif ($userDraw == 'rock') {
-        //        return $computerDraw == 'paper' ? 'Computer wins' : 'User wins';
-        //     } elseif ($userDraw == 'paper') {
-        //         return $computerDraw == 'scissor' ? 'Computer wins' : 'User wins';
-        //     } elseif ($userDraw == 'scissor') {
-        //         return $computerDraw == 'rock' ? 'Computer wins' : 'User wins';
-        //     }
-        // }
-        
-
-        // if ($userDraw == $computerDraw) {
-        //     $winner = 'It was a tie';
-        // } elseif ($userDraw == 'rock' and $computerDraw == 'paper') {
-        //     $winner = 'Computer';
-        // } elseif ($userDraw == 'rock' and $computerDraw == 'scissor'){
-        //     $winner = 'User';
-        // } elseif ($userDraw == 'paper' and $computerDraw == 'rock') {
-        //     $winner = 'User';
-        // } elseif ($userDraw == 'paper' and $computerDraw == 'scissor'){
-        //     $winner = 'Computer';
-        // } elseif ($userDraw == 'scissor' and $computerDraw == 'rock') {
-        //     $winner = 'Computer';
-        // } elseif ($userDraw == 'scissor' and $computerDraw == 'paper'){
-        //     $winner = 'User';
-        // }
-            
-        // $results[] = [
-        //     'user' => $userDraw,
-        //     'computer' => $computerDraw,
-        //     'winner' => $winner,
-        // ];
-        
-        // require 'index-view.php';
+function drawMove() {
+    $moves = ['rock', 'paper', 'scissor'];
+    return $moves[rand(0,2)];
+}
 
 
+function decideWinner($userDraw, $computerDraw) {
+    if ($userDraw == $computerDraw) {
+        return 'It was a tie';
+    } elseif ($userDraw == 'rock') {
+        return $computerDraw == 'paper' ? 'Computer wins' : 'User wins';
+    } elseif ($userDraw == 'paper') {
+        return $computerDraw == 'scissor' ? 'Computer wins' : 'User wins';
+    } elseif ($userDraw == 'scissor') {
+        return $computerDraw == 'rock' ? 'Computer wins' : 'User wins';
+    }
+}
 
-// $choose = drawMove();
 
-// $winner = $draw == $choose;
+$_SESSION['results'] = [
+    'winner' => $winner,
+    'userDraw' => $userDraw,
+    'computerDraw' => $computerDraw
+];
 
-var_dump($draw);
-// var_dump($choose);
-var_dump($winner);
 
-// function drawMove() {
-//     $moves = ['rock', 'paper', 'scissor'];
-//     return $moves[rand(0,2)];
-// }
+header('Location: index.php');
