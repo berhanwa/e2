@@ -10,17 +10,17 @@ $draw = $_POST['draw'];
         $computerDraw = $moves[rand(0, 2)];
         $winner = '';
         
-        function decideWinner() {
-            if ($userDraw == $computerDraw) {
-                return 'It was a tie';
-            } elseif ($userDraw == 'rock') {
-               return $computerDraw == 'paper' ? 'Computer wins' : 'User wins';
-            } elseif ($userDraw == 'paper') {
-                return $computerDraw == 'scissor' ? 'Computer wins' : 'User wins';
-            } elseif ($userDraw == 'scissor') {
-                return $computerDraw == 'rock' ? 'Computer wins' : 'User wins';
-            }
-        }
+        // function decideWinner() {
+        //     if ($userDraw == $computerDraw) {
+        //         return 'It was a tie';
+        //     } elseif ($userDraw == 'rock') {
+        //        return $computerDraw == 'paper' ? 'Computer wins' : 'User wins';
+        //     } elseif ($userDraw == 'paper') {
+        //         return $computerDraw == 'scissor' ? 'Computer wins' : 'User wins';
+        //     } elseif ($userDraw == 'scissor') {
+        //         return $computerDraw == 'rock' ? 'Computer wins' : 'User wins';
+        //     }
+        // }
         
 
         // if ($userDraw == $computerDraw) {
