@@ -12,7 +12,6 @@
 
     <form method='POST' action='process.php'>
 
-
         <input type='radio' name='draw' id='rock' value='rock'
             <?php echo (!isset($userDraw) or $userDraw == 'rock') ? 'checked' : '' ?>>
         <label for='rock'>Rock</label>
@@ -25,9 +24,18 @@
             <?php echo (isset($userDraw) and $userDraw == 'scissor') ? 'checked' : '' ?>>
         <label for='scissor'>Scissor</label>
 
-
         <button type='submit'>Play</button>
+
     </form>
+
+
+    <h2>Instructions</h2>
+
+    <ul>
+        <li>Pick a move from either Rock, Paper or Scissor.</li>
+        <li>A tie is declared if both you and the computer draw the same move.</li>
+        <li>Otherwise: Rock beats Scissors, Scissor beats Paper, Paper beats Rock.</li>
+    </ul>
 
 
     <?php if(isset($results)) { ?>
@@ -38,7 +46,6 @@
         <li>The computer drew <?php echo $computerDraw; ?>.</li>
         <li><?php echo $winner ?> this round!</li>
     </ul>
-
 
     <?php } ?>
 
