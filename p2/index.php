@@ -9,9 +9,7 @@ if(isset($_SESSION['results'])) {
     $userDraw = $results['userDraw'];
     $computerDraw = $results['computerDraw'];
 
-    var_dump($winner);
-    var_dump($userDraw);
-    var_dump($computerDraw);
+    $_SESSION['results'] = null;
 }
 
 

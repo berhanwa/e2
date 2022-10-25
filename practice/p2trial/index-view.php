@@ -24,7 +24,33 @@
 
 
         <button type='submit'>Play</button>
-
     </form>
+
+    <?php if(isset($results)) { ?>
+    <h2>Results</h2>
+
+    <!-- You drew <?php echo $userDraw; ?>
+    and the computer drew <?php echo $computerDraw; ?> -->
+
+    <ul>
+        <li>You drew <?php echo $userDraw; ?>.</li>
+        <li>The computer drew <?php echo $computerDraw; ?>.</li>
+        <li><?php echo $winner ?> this round!</li>
+    </ul>
+
+    <!-- <?php ($winner = $userDraw) ? '- you won this round!' : '- you lost this round, please try again!' ?> -->
+
+    <!-- <?php $winner == $userDraw = '- you won this round!'; ?> -->
+
+    <!-- <?php if ($userDraw == $computerDraw) { ?>
+    - it was a tie!
+    <?php } elseif ($winner = $userDraw) { ?>
+    - you won this round!
+    <?php } elseif ($winner = $computerDraw) { ?>
+    - you lost this round, please try again!
+    <?php } ?> -->
+
+    <?php } ?>
+
 
 </body>

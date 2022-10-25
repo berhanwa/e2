@@ -13,18 +13,33 @@
     <form method='POST' action='process.php'>
 
 
-        <input type='radio' name='draw' value='rock' id='rock' checked>
+        <input type='radio' name='draw' id='rock' value='rock'
+            <?php echo (!isset($userDraw) or $userDraw == 'rock') ? 'checked' : '' ?>>
         <label for='rock'>Rock</label>
 
-        <input type='radio' name='draw' value='paper' id='paper'>
+        <input type='radio' name='draw' id='paper' value='paper'
+            <?php echo (isset($userDraw) and $userDraw == 'paper') ? 'checked' : '' ?>>
         <label for='paper'>Paper</label>
 
-        <input type='radio' name='draw' value='scissor' id='scissor'>
+        <input type='radio' name='draw' id='scissor' value='scissor'
+            <?php echo (isset($userDraw) and $userDraw == 'scissor') ? 'checked' : '' ?>>
         <label for='scissor'>Scissor</label>
 
 
         <button type='submit'>Play</button>
-
     </form>
+
+
+    <?php if(isset($results)) { ?>
+    <h2>Results</h2>
+
+    <ul>
+        <li>You drew <?php echo $userDraw; ?>.</li>
+        <li>The computer drew <?php echo $computerDraw; ?>.</li>
+        <li><?php echo $winner ?> this round!</li>
+    </ul>
+
+
+    <?php } ?>
 
 </body>
