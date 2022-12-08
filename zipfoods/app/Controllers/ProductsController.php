@@ -80,9 +80,28 @@ class ProductsController extends Controller
         $productSaved = $this->app->old('productSaved');
         $sku = $this->app->old('sku');
 
-        return $this->app->view('product/new' [
+        return $this->app->view('product/new', [
             'productSaved' => $productSaved,
             'sku' => $sku
         ]);
-    }   
+    }
+    
+    public function save()
+    {
+        $this->app->validate([
+            'name' => 'required',
+            'sku' => 'required|alphaNumericDash',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'available' => 'required|numeric',
+            'weight' => 'required|numeric'
+        ]);
+
+        $this->app->db()->insert('products', $this->app->inputAll());
+
+        $this->app->redirect('/products/new', [
+            'productSaved' => true,
+            'sku' => $this->app->input('sku')
+        ]);
+    }
 }
