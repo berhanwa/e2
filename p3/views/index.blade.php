@@ -21,7 +21,9 @@
     </form>
 
     @if ($choice)
-        You chose {{ $choice }}, and the computer chose {{ $computerDraw }}.
-        In this round, {{ $won }}
+        <div class='results'>
+            You chose {{ $choice }}, and the computer chose {{ $computerDraw }}.
+            In this round, {{ $won }}
+        </div>
     @endif
 @endsection
