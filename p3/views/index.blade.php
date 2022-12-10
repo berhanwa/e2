@@ -15,11 +15,14 @@
 
     <form method='POST' action='/process'>
 
-        <input type='radio' name='choice' id='rock' value='rock'><label for='rock'>Rock</label>
-        <input type='radio' name='choice' id='paper' value='paper'><label for='paper'>Paper</label>
-        <input type='radio' name='choice' id='scissor' value='scissor'><label for='scissor'>Scissor</label>
+        <input type='radio' test='rock-radio' name='choice' id='rock' value='rock'>
+        <label for='rock'>Rock</label>
+        <input type='radio' test='rock-paper' name='choice' id='paper' value='paper'>
+        <label for='paper'>Paper</label>
+        <input type='radio' test='rock-scissor' name='choice' id='scissor' value='scissor'>
+        <label for='scissor'>Scissor</label>
 
-        <button type='submit'>Play</button>
+        <button test='submit-button' type='submit'>Play</button>
 
     </form>
 
@@ -34,7 +37,7 @@
 
 
     @if ($choice)
-        <div class='results'>
+        <div test='results-div' class='results'>
             You chose {{ $choice }}, and the computer chose {{ $computerDraw }}.
             In this round, {{ $won }}
         </div>
