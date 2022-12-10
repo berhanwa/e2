@@ -22,6 +22,11 @@ class AppController extends Controller
     
     public function process()
     {
+        $this->app->validate([
+            'choice' => 'required'
+        ]);
+
+
         $choice = $this->app->input('choice');
 
         function drawMove() {
@@ -45,19 +50,33 @@ class AppController extends Controller
         $computerDraw = drawMove();
         $won = decideWinner($userDraw, $computerDraw);
 
+
+        $this->app->db()->insert('rounds', [
+            'choice' => $choice,
+            'won' => ($won) ? 1 : 0,
+            'timestamp' => date('Y-m-d H:i:s')
+        ]);
+
+
         return $this->app->redirect('/', ['choice' => $choice, 'computerDraw' => $computerDraw, 'won' => $won]);
     }
 
 
     public function history()
     {
-        return $this->app->view('history');
+        $rounds = $this->app->db()->all('rounds');
+
+        return $this->app->view('history', ['rounds' => $rounds]);
     }
     
         
     public function round()
     {
-        return $this->app->view('round');
+        $id = $this->app->param('id');
+
+        $round = $this->app->db()->findById('rounds', $id);
+
+        return $this->app->view('round', ['round' => $round]);
     }
     
 }
