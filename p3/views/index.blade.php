@@ -38,7 +38,8 @@
 
     @if ($choice)
         <div test='results-div' class='results'>
-            You chose {{ $choice }}, and the computer chose {{ $computerDraw }}.
+            You chose {{ $choice }}, and the computer chose <span test='computer-outcome'> {{ $computerDraw }}.
+            </span>
             In this round, {{ $won }}
         </div>
     @endif
