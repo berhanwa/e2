@@ -6,3 +6,15 @@
     font-weight: bold;
     margin: 25px;
 }
+
+.tie {
+    color:rgb(194, 122, 194);
+}
+
+.won {
+    color:green;
+}
+
+.lost {
+    color:red;
+}

@@ -26,25 +26,29 @@ class AppController extends Controller
             'choice' => 'required'
         ]);
 
-
         $choice = $this->app->input('choice');
 
         function drawMove() {
             $moves = ['rock', 'paper', 'scissor'];
             return $moves[rand(0,2)];
-    }
+        }
 
-        function decideWinner($userDraw, $computerDraw) {
+        function decideWinner($userDraw, $computerDraw)
+        {
+            # Convert the move to a numerical value where 0 = rock, 1 = paper, 2 = scissors
+            $moves = ['rock', 'paper', 'scissors'];
+            $userDraw = array_search($userDraw, $moves);
+            $computerDraw = array_search($computerDraw, $moves);
+        
             if ($userDraw == $computerDraw) {
-                return 'it was a tie. Please try again!';
-            } elseif ($userDraw == 'rock') {
-                return $computerDraw == 'paper' ? 'the computer won. Please try again!' : 'you won!';
-            } elseif ($userDraw == 'paper') {
-                return $computerDraw == 'scissor' ? 'the computer won. Please try again!' : 'you won!';
-            } elseif ($userDraw == 'scissor') {
-                return $computerDraw == 'rock' ? 'the computer won. Please try again!' : 'you won!';
+                return 'tie';
+            } elseif (($userDraw + 1) % 3 == $computerDraw) {
+                return 'computer';
+            } else {
+                return 'user';
             }
         }
+
 
         $userDraw = $_POST['choice'];
         $computerDraw = drawMove();
